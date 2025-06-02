@@ -1145,25 +1145,6 @@ class PlayState extends MusicBeatState
 			psychEngineWatermark.cameras = [camHUD];
 
 
-			
-			var ratingsHUD:FlxText;
-
-			var originalFontSize = 25;
-			var scaledFontSize = Math.ceil(originalFontSize / 1.25); // ~20px
-
-			ratingsHUD = new FlxText(8, FlxG.height - 110, 0, "", 30);
-			ratingsHUD.setFormat(Paths.font("cs.ttf"), scaledFontSize, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			ratingsHUD.borderSize = 0.5;
-			ratingsHUD.scrollFactor.set();
-			ratingsHUD.cameras = [camHUD];
-			add(ratingsHUD);
-
-			// Update this function dynamically
-			function updateRatingsHUD():Void {
-				var ratingText = "Sicks: $sicks\nGoods: $goods\nBads: $bads\nShits: $shits";
-				ratingsHUD.set_text(ratingText);
-			}
-
 
 		var tempScore:String = 'Score: ${songScore}'
 		+ (!instakillOnMiss ? ' | Misses: ${songMisses}' : "")
