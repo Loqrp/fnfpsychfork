@@ -1161,7 +1161,7 @@ class PlayState extends MusicBeatState
 			// Update this function dynamically
 			function updateRatingsHUD():Void {
 				var ratingText = "Sicks: $sicks\nGoods: $goods\nBads: $bads\nShits: $shits";
-				ratingsHUD.set_Text(ratingText);
+				ratingsHUD.set_text(ratingText);
 			}
 
 
