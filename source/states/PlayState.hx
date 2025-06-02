@@ -1160,71 +1160,7 @@ class PlayState extends MusicBeatState
 
 		callOnScripts('onUpdateScore', [miss]);
 	}
-
-	override public function update(elapsed:Float):Void {
-    super.update(elapsed);
-
-    // Update Max Combo
-    if (combo > maxComboValue) {
-        maxComboValue = combo;
-    }
-
-    // Update Text Strings
-    comboText.setText("Combo: $combo");
-    maxComboText.setText("Max Combo: $maxComboValue");
-    sicksText.setText("Sicks!: $sicks");
-    goodsText.setText("Goods: $goods");
-    badsText.setText("Bads: $bads");
-    shitsText.setText("Shits: $shits");
-
-    var missCount = songMisses; // Assuming this is accessible
-    if (missCount == 0) {
-        missesText.setText("Misses: FC");
-    } else {
-        missesText.setText("Misses: $missCount");
-    }
-
-    // Update Colors and Scaling Based on Stats
-
-    // SICKS Highlight
-    if (sicks != 0 && goods == 0 && bads == 0 && shits == 0) {
-        sicksText.textColor = FlxColor.fromHex("36eaf7");
-        sicksText.scale.set(iconP1.scale.x + 0.01, iconP1.scale.y + 0.01);
-    } else {
-        sicksText.textColor = FlxColor.WHITE;
-        sicksText.scale.set(1, 1);
-    }
-
-    // GOODS Highlight
-    if (goods != 0 && bads == 0 && shits == 0) {
-        goodsText.textColor = FlxColor.fromHex("90ee90");
-        goodsText.scale.set(iconP1.scale.x, iconP1.scale.y);
-    } else {
-        goodsText.textColor = FlxColor.WHITE;
-        goodsText.scale.set(1, 1);
-    }
-
-    // Bads Highlight
-    if (bads != 0 && shits == 0) {
-        badsText.textColor = FlxColor.fromHex("fffecb");
-        badsText.scale.set(iconP1.scale.x - 0.01, iconP1.scale.y - 0.01);
-    } else {
-        badsText.textColor = FlxColor.WHITE;
-        badsText.scale.set(1, 1);
-    }
-
-    // Misses Highlight
-    if (missCount > 0) {
-        missesText.textColor = FlxColor.RED;
-        missesText.alpha = 1;
-    }
-
-    // Fade out unused rating texts slightly
-    sicksText.alpha = sicks != 0 ? 1 : 0.6;
-    goodsText.alpha = goods != 0 ? 1 : 0.6;
-    badsText.alpha = bads != 0 ? 1 : 0.6;
-    shitsText.alpha = shits != 0 ? 1 : 0.6;
-}
+	
 
 	public dynamic function fullComboFunction()
 	{
