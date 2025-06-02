@@ -1129,12 +1129,12 @@ class PlayState extends MusicBeatState
 			var psychEngineWatermark:FlxText;
 
 			var originalFontSize = 25;
-			var scaledFontSize = Math.ceil(originalFontSize / 1.25); // ~20px
+			var scaledFontSize = Math.ceil(originalFontSize / 1.25);
 
 			psychEngineWatermark = new FlxText(8, FlxG.height - 40, 1280, SONG.song, 30);
 			psychEngineWatermark.setFormat(Paths.font("cs.ttf"), scaledFontSize, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			psychEngineWatermark.scrollFactor.set();
-			psychEngineWatermark.borderSize = 0.5; // Small outline
+			psychEngineWatermark.borderSize = 0.5;
 			add(psychEngineWatermark);
 
 			var useDownScroll = false; 
@@ -1143,6 +1143,26 @@ class PlayState extends MusicBeatState
 			}
 
 			psychEngineWatermark.cameras = [camHUD];
+
+
+			
+			var ratingsHUD:FlxText;
+
+			var originalFontSize = 25;
+			var scaledFontSize = Math.ceil(originalFontSize / 1.25); // ~20px
+
+			ratingsHUD = new FlxText(8, FlxG.height - 110, 0, "", 30);
+			ratingsHUD.setFormat(Paths.font("cs.ttf"), scaledFontSize, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			ratingsHUD.borderSize = 0.5;
+			ratingsHUD.scrollFactor.set();
+			ratingsHUD.cameras = [camHUD];
+			add(ratingsHUD);
+
+			// Update this function dynamically
+			function updateRatingsHUD():Void {
+				var ratingText = "Sicks: $sicks\nGoods: $goods\nBads: $bads\nShits: $shits";
+				ratingsHUD.setText(ratingText);
+			}
 
 
 		var tempScore:String = 'Score: ${songScore}'
