@@ -1128,19 +1128,16 @@ class PlayState extends MusicBeatState
 
 			var psychEngineWatermark:FlxText;
 
-			// Calculate font size (1.25x smaller than original intended size)
 			var originalFontSize = 25;
 			var scaledFontSize = Math.ceil(originalFontSize / 1.25); // ~20px
 
-			// Psych Engine Watermark - smaller text, small outline, cs.ttf, bottom-left corner
 			psychEngineWatermark = new FlxText(8, FlxG.height - 40, 1280, SONG.song, 30);
 			psychEngineWatermark.setFormat(Paths.font("cs.ttf"), scaledFontSize, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			psychEngineWatermark.scrollFactor.set();
 			psychEngineWatermark.borderSize = 0.5; // Small outline
 			add(psychEngineWatermark);
 
-			// Optional: Adjust for downscroll if needed
-			var useDownScroll = false; // Replace with actual check if available
+			var useDownScroll = false; 
 			if (useDownScroll) {
 				psychEngineWatermark.y = FlxG.height * 0.9 + 45;
 			}
